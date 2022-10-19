@@ -4,6 +4,8 @@ on:
     secrets:
       TERRAFORM_API_TOKEN:
         required: true
+    env:
+      TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 jobs:
   terraform:
     name: 'Terraform'
