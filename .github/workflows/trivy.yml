@@ -7,7 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Trivy vulnerability scanner
     steps:
-      - uses: actions/checkout@v3
+      - name: Get files from cache
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ github.job }}
+          path: ./
       - uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
