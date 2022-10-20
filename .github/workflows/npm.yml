@@ -29,7 +29,7 @@ jobs:
       - name: Save build to cache
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ github.job }}
+          name: ${{ github.job. }}-${{ github.run_id }}
           path: |
             ./
             !node_modules/*
