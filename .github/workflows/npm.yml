@@ -1,6 +1,12 @@
 name: 'Node Package Management'
 on:
   workflow_call:
+    inputs:
+      npm-publish:
+        description: If we should publish the npm package to the registry
+        required: true
+        type: boolean
+        default: false
 jobs:
   npm:
     name: 'Install dependencies'
