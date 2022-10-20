@@ -9,7 +9,6 @@ jobs:
     uses: jonasthim/reusable-workflows/.github/workflows/licenses.yml@main
     needs: npm
     secrets: inherit
-    
   spectral:
     uses: jonasthim/reusable-workflows/.github/workflows/spectral.yml@main
     needs: npm
@@ -22,6 +21,6 @@ jobs:
     uses: jonasthim/reusable-workflows/.github/workflows/checkov.yml@main
     needs: npm
     secrets: inherit
-  deploy:
-    uses: jonasthim/reusable-workflows/.github/workflows/checkov.yml@main
-    secrets: inherit
+  # deploy:
+  #   uses: jonasthim/reusable-workflows/.github/workflows/checkov.yml@main
+  #   secrets: inherit
