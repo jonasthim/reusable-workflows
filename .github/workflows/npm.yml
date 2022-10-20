@@ -19,6 +19,7 @@ jobs:
         run: |
           npx eslint './src/**/*.ts' --quiet --fix
           npx prettier ./src --check
+        continue-on-error: true
       - name: Compile
         run: npx tsc
       - name: Package
