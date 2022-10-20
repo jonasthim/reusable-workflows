@@ -6,20 +6,29 @@ jobs:
     name: 'Install dependencies'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
           cache: 'npm'
       - name: Install Dependencies
-        run: echo "Installing dependencies"
+        run: npm ci
       - name: Lint
         run: |
-          echo "Running lint"
+          npx eslint './src/**/*.ts' --quiet --fix
+          npx prettier ./src --check
       - name: Compile
-        run: echo "Compiling"
+        run: npx tsc
       - name: Package
-        run: echo "Package"
+        run: npx sls package
       - name: Test
-        run: echo "Tests"
+        run: npm test
+      - name: Save build to cache
+        uses: actions/upload-artifact@v2
+        with:
+          name: Save build
+          path: ./
+          retention-days: 1
   
