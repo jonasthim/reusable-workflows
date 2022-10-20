@@ -1,0 +1,21 @@
+# name: 'Deploy'
+# on:
+#   workflow_call:
+# jobs:
+#   deploy-test:
+#     runs-on: ubuntu-latest
+#     name: Deploy to test
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Configure AWS Credentials
+#         uses: aws-actions/configure-aws-credentials@v1
+#         with:
+#           aws-region: eu-north-1
+#           role-to-assume: ${{ secrets.AWS_ROLE_ARN_TEST }}
+#           role-session-name: OIDCSession
+#       - name: Install dependencies
+#         run: npm ci
+#       - name: Deploy stateful infrastructure to test
+#         run: npm run deploy:infra:test
+#       - name: Deploy stateless infrastructure to test
+#         run: npm run deploy:test
