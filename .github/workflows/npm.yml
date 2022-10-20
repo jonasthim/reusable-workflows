@@ -13,8 +13,13 @@ jobs:
         with:
           node-version: lts/*
           cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
       - name: Install Dependencies
         run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: npm.publish
       - name: Lint
         run: |
           npx eslint './src/**/*.ts' --quiet --fix

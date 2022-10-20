@@ -21,3 +21,7 @@ jobs:
     uses: jonasthim/reusable-workflows/.github/workflows/checkov.yml@main
     needs: npm
     secrets: inherit
+  deploy:
+    uses: jonasthim/reusable-workflows/.github/workflows/checkov.yml@main
+    needs: [npm]
+    secrets: inherit
