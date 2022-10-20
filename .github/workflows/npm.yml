@@ -1,0 +1,24 @@
+name: 'Node Package Management'
+on:
+  workflow_call:
+jobs:
+  npm:
+    name: 'Install dependencies'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: 'npm'
+      - name: Install Dependencies
+        run: echo "Installing dependencies"
+      - name: Lint
+      run: |
+          echo "Running lint"
+      - name: Compile
+        run: echo "Compiling"
+      - name: Package
+        run: echo "Package"
+      - name: Test
+        run: echo "Tests"
+  

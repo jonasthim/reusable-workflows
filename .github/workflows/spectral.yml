@@ -1,0 +1,13 @@
+name: 'Spectral'
+on:
+  workflow_call:
+jobs:  
+  spectral:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    name: Spectral
+    steps:
+      - run: "printf '{\n  \"extends\": [\"spectral:asyncapi\"]\n}\n' >.spectral.json"
+      - uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: 'api/asyncapi.json'

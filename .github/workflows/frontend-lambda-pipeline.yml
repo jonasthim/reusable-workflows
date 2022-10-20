@@ -1,0 +1,14 @@
+name: 'Cloudflare'
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+jobs:
+  npm:
+    uses: jonasthim/reusable-workflows/.github/workflows/npm.yml@main
+    secrets: inherit
+  licenses:
+    uses: jonasthim/reusable-workflows/.github/workflows/licenses.yml@main
+    secrets: inherit

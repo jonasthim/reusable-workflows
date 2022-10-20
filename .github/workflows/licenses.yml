@@ -1,0 +1,10 @@
+name: 'Licenses'
+on:
+  workflow_call:
+jobs:
+  licenses:
+    runs-on: ubuntu-latest
+    name: License compliance
+    steps:
+      - name: License compliance check
+        run: echo "Checking licenses"
