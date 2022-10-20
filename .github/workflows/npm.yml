@@ -30,6 +30,8 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Save build
-          path: ./
+          path: |
+            ./
+            !node_modules/*
           retention-days: 1
   
