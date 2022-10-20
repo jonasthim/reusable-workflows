@@ -7,6 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Spectral
     steps:
+      - name: Get files from cache
+        uses: actions/download-artifact@v3
+        with:
+          name: Unpack build
+          path: ./
       - run: "printf '{\n  \"extends\": [\"spectral:asyncapi\"]\n}\n' >.spectral.json"
       - uses: stoplightio/spectral-action@latest
         with:

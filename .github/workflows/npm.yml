@@ -27,7 +27,7 @@ jobs:
       - name: Test
         run: npm test
       - name: Save build to cache
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Save build
           path: |

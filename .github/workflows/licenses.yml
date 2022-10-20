@@ -6,5 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     name: License compliance
     steps:
+      - name: Get files from cache
+        uses: actions/download-artifact@v3
+        with:
+          name: Unpack build
+          path: ./
       - name: License compliance check
-        run: echo "Checking licenses"
+        uses: mikaelvesavuori/license-compliance-action@v1.0.2

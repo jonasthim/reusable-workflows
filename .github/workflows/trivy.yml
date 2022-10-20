@@ -1,0 +1,24 @@
+name: 'Spectral'
+on:
+  workflow_call:
+jobs:  
+  trivy:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    name: Trivy vulnerability scanner
+    steps:
+      - uses: actions/checkout@v3
+      - uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: json
+          exit-code: 1
+          severity: CRITICAL
+          #format: 'sarif'
+          #output: 'trivy-results.sarif'
+      # Required GH Advanced Security
+      #- name: Upload Trivy scan results to GitHub Security tab
+      #  uses: github/codeql-action/upload-sarif@v2
+      #  with:
+      #    sarif_file: 'trivy-results.sarif'
