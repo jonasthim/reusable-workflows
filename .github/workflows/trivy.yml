@@ -10,7 +10,7 @@ jobs:
       - name: Get files from cache
         uses: actions/download-artifact@v3
         with:
-          name: ${{ github.job }}
+          name: ${{ github.run_id }}
           path: ./
       - uses: aquasecurity/trivy-action@master
         with:

@@ -9,7 +9,7 @@ jobs:
       - name: Get files from cache
         uses: actions/download-artifact@v3
         with:
-          name: Unpack build
+          name: ${{ github.run_id }}
           path: ./
       - name: License compliance check
         uses: mikaelvesavuori/license-compliance-action@v1.0.2

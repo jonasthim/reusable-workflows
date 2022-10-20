@@ -10,7 +10,7 @@ jobs:
       - name: Get files from cache
         uses: actions/download-artifact@v3
         with:
-          name: Unpack build
+          name: ${{ github.run_id }}
           path: ./
       - run: "printf '{\n  \"extends\": [\"spectral:asyncapi\"]\n}\n' >.spectral.json"
       - uses: stoplightio/spectral-action@latest
