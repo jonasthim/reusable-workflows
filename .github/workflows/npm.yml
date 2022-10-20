@@ -19,7 +19,7 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: env.npm.publish
+        if: NPM_PUBLISH
       - name: Lint
         run: |
           npx eslint './src/**/*.ts' --quiet --fix
