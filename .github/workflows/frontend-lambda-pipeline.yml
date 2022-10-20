@@ -1,4 +1,4 @@
-name: 'Cloudflare'
+name: 'Frontend Super Deluxe'
 on:
   workflow_call:
     inputs:
@@ -11,6 +11,8 @@ jobs:
   npm:
     uses: jonasthim/reusable-workflows/.github/workflows/npm.yml@main
     secrets: inherit
+    with: 
+      npm-publish: ${{ inputs.npm-publish }}
   licenses:
     uses: jonasthim/reusable-workflows/.github/workflows/licenses.yml@main
     needs: npm
