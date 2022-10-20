@@ -1,0 +1,21 @@
+name: 'Checkov'
+on:
+  workflow_call:
+jobs:
+  checkov:
+    runs-on: ubuntu-latest
+    name: Checkov
+    steps:
+      - name: Get files from cache
+        uses: actions/download-artifact@v3
+        with:
+          name: Unpack build
+          path: ./
+      - name: Checkov
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: '.'
+          quiet: true
+          output_format: github_failed_only
+          #soft_fail: true
