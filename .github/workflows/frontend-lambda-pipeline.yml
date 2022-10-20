@@ -1,6 +1,12 @@
 name: 'Cloudflare'
 on:
   workflow_call:
+    inputs:
+      npm-publish:
+        description: Environment to deploy to
+        required: true
+        type: boolean
+        default: false
 jobs:
   npm:
     uses: jonasthim/reusable-workflows/.github/workflows/npm.yml@main
